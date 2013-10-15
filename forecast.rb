@@ -1,7 +1,7 @@
 require './weather_api'
 
 # CHALLENGE: Get coordinates for any city we want
-coordinates = get_coordinates("Miama, FL")
+coordinates = get_coordinates("Chicago")
 
 latitude = coordinates.first
 longitude = coordinates.last

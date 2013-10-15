@@ -9,12 +9,13 @@ def get_coordinates(city_name)
   string_data = open(google_maps_url).read
   data = JSON.parse(string_data)
 
-  latitude = data['results'].first['geometry']['location']['lat']
-  longitude = data['results'].first['geometry']['location']['lng']
+  latitude = data["results"].first["geometry"]["location"]["lat"]
+  longitude = data["results"].first["geometry"]["location"]["lng"]
 
-  coordinates = [latitude, longitude]
+  coordinates = [latitude,longitude]
 
   return coordinates
+
 end
 
 def get_current_temperature(latitude, longitude)
@@ -22,7 +23,6 @@ def get_current_temperature(latitude, longitude)
   string_data = open(URI.encode(forecast_url)).read
   data = JSON.parse(string_data)
 
-  temp = data['currently']['temperature']
-
+  temp = data["currently"]["temperature"].to_i
   return temp
 end
